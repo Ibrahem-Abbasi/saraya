@@ -13,7 +13,7 @@
 3. Post
 4. Put /{id}
 5. Delete /{id}
-6. Get /by-teacher
+6. Get /by-teacher/{teacherId}
 
 ## Question /question
 1. Get (all)
