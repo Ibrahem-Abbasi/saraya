@@ -41,7 +41,7 @@ public class User implements UserDetails {
     @Size(max = 60)
     @NotNull
     @Column(name = "hashed_password", nullable = false, length = 60)
-    private String hashedPassword;
+    private String password;
 
     @Size(max = 100)
     @NotNull
@@ -78,7 +78,7 @@ public class User implements UserDetails {
     @Column(name = "is_enabled", nullable = false)
     private Boolean isEnabled = Boolean.TRUE;
 
-    @OneToMany(mappedBy = "teacher_id", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "teacherId", fetch = FetchType.LAZY)
     private List<Group> groups = new ArrayList<>();
 
     public Integer getId() {
@@ -106,11 +106,11 @@ public class User implements UserDetails {
     }
 
     public String getPassword() {
-        return hashedPassword;
+        return password;
     }
 
     public void setPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
+        this.password = hashedPassword;
     }
 
     public String getEmail() {

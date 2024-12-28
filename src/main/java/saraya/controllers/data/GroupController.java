@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import saraya.entities.Group;
-import saraya.entities.User;
 import saraya.services.data.GroupService;
 
 @RestController
@@ -28,9 +27,9 @@ public class GroupController {
                 () -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/by-teacher")
-    public ResponseEntity<Iterable<Group>> getGroupByTeacherId(@RequestBody User teacher) {
-        return ResponseEntity.ok(groupService.getByTeacherId(teacher));
+    @GetMapping("/by-teacher/{teacher_id}")
+    public ResponseEntity<Iterable<Group>> getGroupByTeacherId(@PathVariable("teacher_id") Integer teacherId) {
+        return ResponseEntity.ok(groupService.getByTeacherId(teacherId));
     }
 
     @PostMapping

@@ -60,17 +60,17 @@ public class UserController {
         }
     }
 
-    @PostMapping("/disable/{id}")
+    @PatchMapping("/disable/{id}")
     public ResponseEntity<User> disableUser(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(userService.disable(id));
     }
 
-    @PutMapping("/promote/{id}")
+    @PatchMapping("/promote/{id}")
     public ResponseEntity<User> promoteUser(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(userService.promote(id));
     }
 
-    @PutMapping("/change-position/{id}")
+    @PatchMapping("/change-position/{id}")
     public ResponseEntity<User> changePosition(@PathVariable("id") Integer id,
                                                @RequestBody Position position) {
         return ResponseEntity.ok(userService.changePosition(id, position));

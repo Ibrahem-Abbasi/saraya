@@ -25,8 +25,8 @@ public class GroupService {
         return groupRepository.findById(id);
     }
 
-    public Iterable<Group> getByTeacherId(User teacher) {
-        return groupRepository.findByTeacher(teacher);
+    public Iterable<Group> getByTeacherId(Integer teacherId) {
+        return groupRepository.findByTeacherId(teacherId);
     }
 
     public Group save(Group group) {
