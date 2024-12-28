@@ -1,7 +1,6 @@
 package saraya.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -13,7 +12,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import saraya.entities.enums.Position;
 import saraya.entities.enums.Profession;
-import saraya.util.Views;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,19 +22,16 @@ import java.util.List;
 @Table(name = "user", schema = "saraya")
 public class User implements UserDetails {
 
-    @JsonView(Views.BasicView.class)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", columnDefinition = "int UNSIGNED not null")
     private Integer id;
 
-    @JsonView(Views.BasicView.class)
     @Size(max = 45)
     @NotNull
     @Column(name = "username", nullable = false, length = 45, unique = true)
     private String username;
 
-    @JsonView(Views.BasicView.class)
     @Size(max = 100)
     @NotNull
     @Column(name = "name", nullable = false, length = 100)
@@ -48,49 +43,41 @@ public class User implements UserDetails {
     @Column(name = "hashed_password", nullable = false, length = 60)
     private String hashedPassword;
 
-    @JsonView(Views.BasicView.class)
     @Size(max = 100)
     @NotNull
     @Column(name = "email", nullable = false, length = 100, unique = true)
     private String email;
 
-    @JsonView(Views.BasicView.class)
     @NotNull
     @ColumnDefault("TEACHER")
     @Enumerated(EnumType.STRING)
     @Column(name = "position", nullable = false)
     private Position position;
 
-    @JsonView(Views.BasicView.class)
     @Size(max = 45)
     @NotNull
     @Column(name = "phone", nullable = false, length = 45)
     private String phone;
 
-    @JsonView(Views.BasicView.class)
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "profession", nullable = false)
     private Profession profession;
 
-    @JsonView(Views.BasicView.class)
     @CreationTimestamp
     @NotNull
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDate createdAt;
 
-    @JsonView(Views.BasicView.class)
     @UpdateTimestamp
     @NotNull
     @Column(name = "updated_at", nullable = false)
     private LocalDate updatedAt;
 
-    @JsonView(Views.BasicView.class)
     @NotNull
     @Column(name = "is_enabled", nullable = false)
     private Boolean isEnabled = Boolean.TRUE;
 
-    @JsonView(Views.DetailedView.class)
     @OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY)
     private List<Group> groups = new ArrayList<>();
 

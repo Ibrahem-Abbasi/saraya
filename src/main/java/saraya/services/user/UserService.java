@@ -54,34 +54,34 @@ public class UserService implements UserDetailsService {
         userRepository.deleteById(id);
     }
 
-    public boolean disable(Integer id) {
+    public User disable(Integer id) {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
             User userToDisable = user.get();
             userToDisable.setIsEnabled(false);
-            return true;
+            return userRepository.save(userToDisable);
         }
-        return false;
+        return null;
     }
 
-    public boolean promote(Integer id) {
+    public User promote(Integer id) {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
             User userToPromote = user.get();
             userToPromote.setPosition(Position.ADMIN);
-            return true;
+            return userRepository.save(userToPromote);
         }
-        return false;
+        return null;
     }
 
-    public boolean changePosition(Integer id, Position position) {
+    public User changePosition(Integer id, Position position) {
         Optional<User> user = userRepository.findById(id);
         if (user.isPresent()) {
             User userToChange = user.get();
             userToChange.setPosition(position);
-            return true;
+            return userRepository.save(userToChange);
         }
-        return false;
+        return null;
     }
 
     @Override
