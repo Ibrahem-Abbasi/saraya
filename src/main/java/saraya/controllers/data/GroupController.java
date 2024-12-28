@@ -1,11 +1,13 @@
 package saraya.controllers.data;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import saraya.entities.Group;
 import saraya.entities.User;
 import saraya.services.data.GroupService;
+import saraya.util.Views;
 
 @RestController
 @RequestMapping("/group")
@@ -17,11 +19,13 @@ public class GroupController {
         this.groupService = groupService;
     }
 
+    @JsonView(Views.BasicView.class)
     @GetMapping
     public ResponseEntity<Iterable<Group>> getAllGroups() {
         return ResponseEntity.ok(groupService.getAll());
     }
 
+    @JsonView(Views.BasicView.class)
     @GetMapping("/{id}")
     public ResponseEntity<Group> getGroupById(@PathVariable("id") Integer id) {
         return groupService.getById(id).map(ResponseEntity::ok).orElseGet(

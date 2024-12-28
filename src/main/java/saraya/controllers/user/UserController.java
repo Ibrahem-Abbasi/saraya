@@ -68,7 +68,7 @@ public class UserController {
         return ResponseEntity.badRequest().build();
     }
 
-    @PostMapping("/promote/{id}")
+    @PutMapping("/promote/{id}")
     public ResponseEntity<User> promoteUser(@PathVariable("id") Integer id) {
         if (userService.promote(id)) {
             return ResponseEntity.ok().build();
@@ -76,7 +76,7 @@ public class UserController {
         return ResponseEntity.badRequest().build();
     }
 
-    @PostMapping("/change-position/{id}")
+    @PutMapping("/change-position/{id}")
     public ResponseEntity<User> changePosition(@PathVariable("id") Integer id,
                                                @RequestBody Position position) {
         if (userService.changePosition(id, position)) {
