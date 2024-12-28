@@ -66,9 +66,9 @@
 2. Get /{id}
 3. Put /{id}
 4. Delete /{id}
-5. Post /promote/{id} (promote user to admin)
-6. Post /disable/{id} (disable a user account)
-7. Post /change-position/{id} (change the position of a user to any position)
+5. Patch /promote/{id} (promote user to admin)
+6. Patch /disable/{id} (disable a user account)
+7. Patch /change-position/{id} (change the position of a user to any position)
 
 
 # Position Authorities
