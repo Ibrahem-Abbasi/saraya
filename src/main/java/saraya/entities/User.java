@@ -78,7 +78,7 @@ public class User implements UserDetails {
     @Column(name = "is_enabled", nullable = false)
     private Boolean isEnabled = Boolean.TRUE;
 
-    @OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "teacher_id", fetch = FetchType.LAZY)
     private List<Group> groups = new ArrayList<>();
 
     public Integer getId() {
