@@ -7,7 +7,7 @@ import saraya.entities.Area;
 import saraya.services.data.AreaService;
 
 @RestController
-@RequestMapping("/areas")
+@RequestMapping("/area")
 public class AreaController {
     private final AreaService areaService;
 

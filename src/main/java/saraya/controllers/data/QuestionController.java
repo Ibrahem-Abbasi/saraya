@@ -7,7 +7,7 @@ import saraya.entities.Question;
 import saraya.services.data.QuestionService;
 
 @RestController
-@RequestMapping("/questions")
+@RequestMapping("/question")
 public class QuestionController {
     private final QuestionService questionService;
 

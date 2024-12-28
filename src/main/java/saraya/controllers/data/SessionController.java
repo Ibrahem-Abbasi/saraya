@@ -61,8 +61,8 @@ public class SessionController {
         return ResponseEntity.ok(attendanceService.saveMany(attendances));
     }
 
-    @PutMapping("/attendance/{id}")
-    public ResponseEntity<Attendance> updateAttendance(@PathVariable("id") Integer id,
+    @PutMapping("/attendance/{attendance_id}")
+    public ResponseEntity<Attendance> updateAttendance(@PathVariable("attendance_id") Integer id,
                                                        @RequestBody Attendance attendance) {
         return ResponseEntity.ok(attendanceService.update(attendance, id));
     }
@@ -74,14 +74,14 @@ public class SessionController {
         return ResponseEntity.ok(sessionReportService.save(sessionReport));
     }
 
-    @PutMapping("/report/{id}")
-    public ResponseEntity<SessionReport> updateSessionReport(@PathVariable("id") Integer id,
+    @PutMapping("/report/{report_id}")
+    public ResponseEntity<SessionReport> updateSessionReport(@PathVariable("report_id") Integer id,
                                                              @RequestBody SessionReport sessionReport) {
         return ResponseEntity.ok(sessionReportService.update(sessionReport, id));
     }
 
-    @DeleteMapping("/report/{id}")
-    public ResponseEntity<?> deleteSessionReport(@PathVariable("id") Integer id) {
+    @DeleteMapping("/report/{report_id}")
+    public ResponseEntity<?> deleteSessionReport(@PathVariable("report_id") Integer id) {
         try {
             sessionReportService.delete(id);
             return ResponseEntity.ok().build();
