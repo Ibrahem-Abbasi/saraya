@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import saraya.entities.User;
 
 public interface GroupRepository extends CrudRepository<Group, Integer> {
-    Iterable<Group> findByTeacher(User teacher);
+    Iterable<Group> findByTeacherId(Integer teacherId);
 }
