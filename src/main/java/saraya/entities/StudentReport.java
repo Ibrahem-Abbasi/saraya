@@ -20,14 +20,13 @@ public class StudentReport {
     @Column(name = "student_id")
     private Integer studentId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "report_id", referencedColumnName = "id")
     private Report report;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "teacher_id", nullable = false)
-    private User teacher;
+    @Column(name = "teacher_id", nullable = false)
+    private Integer teacherId;
 
     @NotNull
     @Column(name = "date", nullable = false)
@@ -62,12 +61,12 @@ public class StudentReport {
         this.report = report;
     }
 
-    public User getTeacher() {
-        return teacher;
+    public Integer getTeacherId() {
+        return teacherId;
     }
 
-    public void setTeacher(User teacher) {
-        this.teacher = teacher;
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
     }
 
     public LocalDate getDate() {

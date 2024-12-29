@@ -64,16 +64,16 @@ public class StudentController {
         return ResponseEntity.ok(studentReportService.save(report));
     }
 
-    @PutMapping("/report/{id}")
+    @PutMapping("/report/{reportId}")
     public ResponseEntity<StudentReport> updateReport(@RequestBody StudentReport report,
-                                                      @PathVariable Integer id) {
-        return ResponseEntity.ok(studentReportService.update(report, id));
+                                                      @PathVariable("reportId") Integer reportId) {
+        return ResponseEntity.ok(studentReportService.update(report, reportId));
     }
 
-    @DeleteMapping("/report/{id}")
-    public ResponseEntity<?> deleteReport(@PathVariable("id") Integer id) {
+    @DeleteMapping("/report/{reportId}")
+    public ResponseEntity<?> deleteReport(@PathVariable("reportId") Integer reportId) {
         try {
-            studentReportService.delete(id);
+            studentReportService.delete(reportId);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();

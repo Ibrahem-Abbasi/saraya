@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 @RestController
 @RequestMapping("/session")
 public class SessionController {
@@ -61,10 +60,10 @@ public class SessionController {
         return ResponseEntity.ok(attendanceService.saveMany(attendances));
     }
 
-    @PutMapping("/attendance/{attendance_id}")
-    public ResponseEntity<Attendance> updateAttendance(@PathVariable("attendance_id") Integer id,
+    @PutMapping("/attendance/{attendanceId}")
+    public ResponseEntity<Attendance> updateAttendance(@PathVariable("attendanceId") Integer teacherId,
                                                        @RequestBody Attendance attendance) {
-        return ResponseEntity.ok(attendanceService.update(attendance, id));
+        return ResponseEntity.ok(attendanceService.update(attendance, teacherId));
     }
 
     // ///// Reports ///// //

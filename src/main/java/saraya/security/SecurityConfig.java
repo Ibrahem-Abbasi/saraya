@@ -57,8 +57,8 @@ public class SecurityConfig {
                     auth.requestMatchers("/user/disable/**").hasAnyAuthority("ADMIN", "SUPER_ADMIN");
                     auth.requestMatchers("/user/promote/**").hasAuthority("ADMIN");
 
-                    auth.requestMatchers("/areas/**").hasAnyAuthority("ADMIN", "SUPER_ADMIN");
-                    auth.requestMatchers("/questions/**").hasAnyAuthority("ADMIN", "SUPER_ADMIN");
+                    auth.requestMatchers("/area/**").hasAnyAuthority("ADMIN", "SUPER_ADMIN");
+                    auth.requestMatchers("/question/**").hasAnyAuthority("ADMIN", "SUPER_ADMIN");
                     auth.requestMatchers("/report/**").hasAnyAuthority("ADMIN", "SUPER_ADMIN");
 
                     auth.requestMatchers(HttpMethod.DELETE, "/group/**").hasAnyAuthority("ADMIN", "SUPER_ADMIN");

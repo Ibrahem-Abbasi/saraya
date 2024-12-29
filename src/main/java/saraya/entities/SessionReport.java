@@ -18,7 +18,7 @@ public class SessionReport {
     @Column(name = "session_id")
     private Integer sessionId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "report_id", referencedColumnName = "id")
     private Report report;
 
@@ -43,11 +43,11 @@ public class SessionReport {
         this.sessionId = sessionId;
     }
 
-    public Report getReportId() {
+    public Report getReport() {
         return report;
     }
 
-    public void setReportId(Report report) {
+    public void setReport(Report report) {
         this.report = report;
     }
 

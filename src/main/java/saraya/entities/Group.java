@@ -43,7 +43,7 @@ public class Group {
     @OrderBy("date ASC")
     private List<Session> sessions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "groupId", fetch = FetchType.LAZY)
     private Set<Student> students = new LinkedHashSet<>();
 
     public Integer getId() {

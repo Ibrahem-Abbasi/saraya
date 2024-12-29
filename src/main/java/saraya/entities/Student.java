@@ -1,5 +1,6 @@
 package saraya.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -34,9 +35,8 @@ public class Student {
     private Gender gender;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "group_id", nullable = false)
-    private Group group;
+    @Column(name = "group_id", nullable = false)
+    private Integer groupId;
 
     @NotNull
     @Column(name = "joined_at", nullable = false)
@@ -48,7 +48,7 @@ public class Student {
     private String motherPhone;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "area_id", nullable = false)
     private Area area;
 
@@ -75,7 +75,7 @@ public class Student {
     @OneToMany(mappedBy = "studentId", fetch = FetchType.LAZY)
     private Set<Attendance> attendances = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "studentId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "studentId")
     private Set<StudentReport> studentReports = new LinkedHashSet<>();
 
     public Integer getId() {
@@ -110,12 +110,12 @@ public class Student {
         this.gender = gender;
     }
 
-    public Group getGroup() {
-        return group;
+    public Integer getGroupId() {
+        return groupId;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 
     public LocalDate getJoinedAt() {
