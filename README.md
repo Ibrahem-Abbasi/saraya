@@ -30,7 +30,7 @@ Base api localhost:8080/api/v1
 3. Post /report
 4. Put /report/{id}
 5. Delete /report/{id}
-6. Get /report/questions/{id} (get all questions related to report)
+6. Get /report/{id}/questions (get all questions related to report)
 
 ## Session 
 1. Get /session/{id}
