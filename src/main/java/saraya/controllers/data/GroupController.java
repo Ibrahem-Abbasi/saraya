@@ -27,8 +27,8 @@ public class GroupController {
                 () -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/by-teacher/{teacher_id}")
-    public ResponseEntity<Iterable<Group>> getGroupByTeacherId(@PathVariable("teacher_id") Integer teacherId) {
+    @GetMapping("/by-teacher/{teacherId}")
+    public ResponseEntity<Iterable<Group>> getGroupByTeacherId(@PathVariable("teacherId") Integer teacherId) {
         return ResponseEntity.ok(groupService.getByTeacherId(teacherId));
     }
 

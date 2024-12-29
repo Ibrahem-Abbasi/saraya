@@ -36,7 +36,7 @@ public class UserController {
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@RequestBody UserUpdateRequest request,
-                                           @PathVariable Integer id) {
+                                           @PathVariable("id") Integer id) {
         Optional<User> user = userService.getById(id);
         if (user.isPresent()) {
             User savedUser = user.get();
