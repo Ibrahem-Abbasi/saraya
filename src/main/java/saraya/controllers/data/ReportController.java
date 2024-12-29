@@ -35,7 +35,7 @@ public class ReportController {
                 () -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/questions/{id}")
+    @GetMapping("/{id}/questions")
     public ResponseEntity<Iterable<Question>> getQuestionsByReportId(@PathVariable("id") Integer id) {
         Optional<Report> report = reportService.getById(id);
         if (report.isPresent()) {
