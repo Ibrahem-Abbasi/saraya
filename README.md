@@ -1,3 +1,7 @@
+
+# Big Changes :
+added CORS Configuration.
+
 # API endpoints
 
 Base api localhost:8080/api/v1
@@ -66,11 +70,12 @@ Base api localhost:8080/api/v1
 ## User 
 1. Get /user (all)
 2. Get /user/{id}
-3. Put /user/{id}
-4. Delete /user/{id}
-5. Patch /user/promote/{id} (promote user to admin)
-6. Patch /user/disable/{id} (disable a user account)
-7. Patch /user/change-position/{id} (change the position of a user to any position)
+3. Get /user/by-username/{username}
+4. Put /user/{id}
+5. Delete /user/{id}
+6. Patch /user/promote/{id} (promote user to admin)
+7. Patch /user/disable/{id} (disable a user account)
+8. Patch /user/change-position/{id} (change the position of a user to any position)
 
 
 # Position Authorities
