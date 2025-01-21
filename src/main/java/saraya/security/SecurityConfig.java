@@ -65,7 +65,6 @@ public class SecurityConfig {
                     auth.requestMatchers("/auth/login").permitAll();
 
                     auth.requestMatchers("/signup").hasAnyAuthority("ADMIN", "SUPER_ADMIN");
-                    auth.requestMatchers(HttpMethod.GET, "/user").hasAnyAuthority("ADMIN", "SUPER_ADMIN");
                     auth.requestMatchers("/user/disable/**").hasAnyAuthority("ADMIN", "SUPER_ADMIN");
                     auth.requestMatchers("/user/promote/**").hasAuthority("ADMIN");
 
